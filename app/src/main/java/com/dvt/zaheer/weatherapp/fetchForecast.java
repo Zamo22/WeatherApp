@@ -17,6 +17,9 @@ import java.nio.charset.Charset;
 
 public class fetchForecast extends AsyncTask<Void,Void,Void> {
 
+    public static double min;
+    public static double max;
+
     @Override
     protected Void doInBackground(Void... voids) {
 
@@ -32,6 +35,15 @@ public class fetchForecast extends AsyncTask<Void,Void,Void> {
 
             Calendar calendar = Calendar.getInstance();
             int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+            JSONObject forecastForToday = (JSONObject) obj.get(0);
+            JSONObject tempsForToday = (JSONObject) forecastForToday.get("temp");
+            min = Double.parseDouble(tempsForToday.get("min").toString());
+            min = Math.round(min);
+
+            max = Double.parseDouble(tempsForToday.get("max").toString());
+            max = Math.round(max);
+
 
             for (int i = 1; i <= 5; i++)//Ignore first (current day)
             {
@@ -99,6 +111,9 @@ public class fetchForecast extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+
+        MainActivity.degMin.setText(String.format("%.0f", min)+" \u2103 \n min");
+        MainActivity.degMax.setText(String.format("%.0f", max)+" \u2103 \n max");
 
     }
 

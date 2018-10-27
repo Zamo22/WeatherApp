@@ -1,9 +1,11 @@
 package com.dvt.zaheer.weatherapp;
 
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -135,6 +137,20 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             Toast toast = Toast.makeText(getApplicationContext(), "Error finding location, try enabling gps", Toast.LENGTH_SHORT); toast.show();
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+
+            int timesRestarted = preferences.getInt("pref_RestartedTimes" , 0);
+
+            if(timesRestarted <= 2)
+            {
+                timesRestarted++;
+                SharedPreferences.Editor edit = preferences.edit();
+                edit.putInt("pref_RestartedTimes",timesRestarted);
+                edit.commit();
+
+                recreate();
+            }
+
         }
 
 

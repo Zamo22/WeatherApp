@@ -19,8 +19,6 @@ public class fetchWeather extends AsyncTask<Void,Void,Void>
 
     public static String degrees = "";
     public static String description = "";
-    public static String min = "";
-    public static String max = "";
     public static int weathercode = 0;
 
     @Override
@@ -34,12 +32,8 @@ public class fetchWeather extends AsyncTask<Void,Void,Void>
             JSONObject json = readJsonFromUrl("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&APPID=ea574594b9d36ab688642d5fbeab847e");
             JSONObject obj = (JSONObject) json.get("main");
             double kelvin =  Double.parseDouble(obj.get("temp").toString());
-            double tempMinK = Double.parseDouble(obj.get("temp_min").toString());
-            double tempMaxK = Double.parseDouble(obj.get("temp_max").toString());
 
             //Converting to Celcius from kelvin is not repeated again
-            double tempMin = tempMinK - 273.15;
-            double tempMax = tempMaxK - 273.15;
             double celcius = kelvin - 273.15;
 
             JSONArray list =  json.getJSONArray("weather");
@@ -62,8 +56,6 @@ public class fetchWeather extends AsyncTask<Void,Void,Void>
             }
 
             degrees = String.format("%.0f", celcius)+" \u2103";
-            min = String.format("%.0f", tempMin)+" \u2103";
-            max = String.format("%.0f", tempMax)+" \u2103";
 
 
         }
@@ -104,8 +96,6 @@ public class fetchWeather extends AsyncTask<Void,Void,Void>
         MainActivity.forecastDegrees.setText(degrees);
         MainActivity.forecast.setText(description.toUpperCase());
         MainActivity.degCurrent.setText(degrees+ "\n Current");
-        MainActivity.degMin.setText(min + "\n min");
-        MainActivity.degMax.setText(max + "\n max");
 
         MainActivity.modifyForWeather(weathercode);
     }
