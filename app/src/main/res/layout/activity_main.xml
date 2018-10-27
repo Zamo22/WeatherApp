@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rel_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="fill_parent"
+        android:layout_height="250sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/forest_sunny" />
+
+    <TextView
+        android:id="@+id/degrees"
+        android:textSize="40sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50sp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/forecastCurrent"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100sp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/city"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forecastCurrent"
+        android:layout_marginTop="15sp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/weatherMin"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:layout_width="80sp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pic"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/weatherCurrent"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pic"
+        android:layout_toRightOf="@id/weatherMin"
+        android:layout_toLeftOf="@id/weatherMax"/>
+
+    <TextView
+        android:id="@+id/weatherMax"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:layout_width="80sp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pic"
+        android:layout_alignParentRight="true" />
+
+    <View
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_below="@id/weatherCurrent"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:id="@+id/dayOne"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17sp"
+        android:layout_below="@id/weatherCurrent"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dayOneDay"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="200sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:id="@+id/dayOneSymbol"
+            android:layout_width="30sp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:layout_toRightOf="@id/dayOneDay"
+            android:src="@drawable/rain" />
+
+
+        <TextView
+            android:id="@+id/dayOneTemp"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:layout_width="170sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dayOneSymbol"
+            android:layout_alignParentRight="true" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dayOne"
+        android:id="@+id/dayTwo"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dayTwoDay"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="200sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:id="@+id/dayTwoSymbol"
+            android:layout_width="30sp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:layout_toRightOf="@id/dayTwoDay"
+            android:layout_marginTop="5sp"
+            android:src="@drawable/clear" />
+
+
+        <TextView
+            android:id="@+id/dayTwoTemp"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:layout_width="170sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dayTwoSymbol"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentRight="true" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dayTwo"
+        android:id="@+id/dayThree"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dayThreeDay"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="200sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:id="@+id/dayThreeSymbol"
+            android:layout_width="30sp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:layout_toRightOf="@id/dayThreeDay"
+            android:layout_marginTop="5sp"
+            android:src="@drawable/clear" />
+
+
+        <TextView
+            android:id="@+id/dayThreeTemp"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:layout_width="170sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dayThreeSymbol"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentRight="true" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dayThree"
+        android:id="@+id/dayFour"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dayFourDay"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="200sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:id="@+id/dayFourSymbol"
+            android:layout_width="30sp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:layout_toRightOf="@id/dayFourDay"
+            android:layout_marginTop="5sp"
+            android:src="@drawable/clear" />
+
+
+        <TextView
+            android:id="@+id/dayFourTemp"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:layout_width="170sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dayFourSymbol"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentRight="true" />
+
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dayFour"
+        android:id="@+id/dayFive"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/dayFiveDay"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_width="200sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentLeft="true" />
+
+        <ImageView
+            android:id="@+id/dayFiveSymbol"
+            android:layout_width="30sp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:layout_toRightOf="@id/dayFiveDay"
+            android:layout_marginTop="5sp"
+            android:src="@drawable/clear" />
+
+
+        <TextView
+            android:id="@+id/dayFiveTemp"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:layout_width="170sp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/dayFiveSymbol"
+            android:layout_marginTop="5sp"
+            android:layout_alignParentRight="true" />
+
+    </LinearLayout>
+
+</RelativeLayout>
