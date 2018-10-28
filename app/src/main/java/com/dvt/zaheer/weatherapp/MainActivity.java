@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Error finding location, try enabling gps", Toast.LENGTH_SHORT); toast.show();
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
 
             int timesRestarted = preferences.getInt("pref_RestartedTimes" , 0);
@@ -149,6 +148,10 @@ public class MainActivity extends AppCompatActivity {
                 edit.commit();
 
                 recreate();
+            }
+            else
+            {
+                Toast toast = Toast.makeText(getApplicationContext(), "Error finding location, try enabling gps", Toast.LENGTH_SHORT); toast.show();
             }
 
         }
